@@ -3,7 +3,7 @@
 
 Repositorio del curso de Métodos Estadísticos Agosto 2025 del programa de Ingeniería Forestal 
 
-##Contenido
+## Contenido
 
 06/08/2025: Inicio de curso de métodos estadísticos 
 +Preparar mi área de trabajo 
@@ -13,4 +13,4 @@ Repositorio del curso de Métodos Estadísticos Agosto 2025 del programa de Inge
 07/08/2025: Sincronizar Github con mi proyecto 
 +Crear version control 
 +Aprender las bases para un uso eficiente de R 
-+Guardar los cambios y actualización de readme 
++Guardar los cambios y actualización de readme
