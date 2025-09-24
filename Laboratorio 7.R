@@ -1,0 +1,63 @@
+############################################
+
+# Laboratorio 7 
+# Evelyn Sofia Ruiz Galarza 
+#24/09/2025
+
+############################################
+
+#Correlación de Pearson 
+
+#Ambas variables son métricas (medibles)
+
+data("faithful")
+
+#Causa=tiempo 
+#Efecto=erupción 
+#Correlación con causalidad 
+
+plot(faithful$waiting,faithful$eruptions,
+     xlab="Tiempo de espera (min)",
+     ylab="Erupción (min)",
+     col="hotpink",
+     pch=20)
+
+#Función de correlación 
+
+#Correlacionar las dos variables 
+#Hipótesis nula= correlación igual a 0 
+#Hipótesis alternativa= correlación diferente a 0 
+
+cor.test(faithful$waiting, faithful$eruptions, 
+         method = "pearson")
+#Correlación (resultado)=0.90 
+#Corr: Muy alta / Significativa 
+
+#Para ver si la distribución de mis datos es normal 
+
+shapiro.test(faithful$eruptions)
+shapiro.test(faithful$waiting)
+
+#Los datos no son normales ya que son valores menores al 0.05 
+#Si eso pasa entonces no se utiliza el método de Pearson
+#Se utiliza el método de Spearman
+#Pearson solo funciona con datos normales 
+#Spearman funciona con datos no normales 
+
+#############################################
+
+#Método de Spearman
+
+#########################################
+
+cor.test(faithful$waiting,faithful$eruptions, 
+         method="spearman")
+
+#Correlación (resultado)=0.77 
+#Corr: Muy alta / Significativa 
+
+#NOTA=se deben de tomar en cuenta el valor de p 
+#para saber que método se utilizará, basandonos en 
+#la distribución de los datos (normal o no nomral)
+#Después el valor de r, nos indica que tan débil o fuerte es la 
+#correlación 
