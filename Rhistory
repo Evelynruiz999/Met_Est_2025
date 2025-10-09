@@ -1,0 +1,512 @@
+main = "Frecuencias por tipos de alimentación",
+xlab = "Número de Pollos",
+ylab = "Tipos de alimentación",
+horiz = TRUE,  # Función para hacerlo horizontal
+font.main = 2,  # Título en negrita
+cex.main = 1.2,  # Función para aumentar el tamaño del título
+cex.lab = 0.8,   # Función para aumentar el tamaño de las etiquetas de los ejes
+cex.names = 0.7, # Función para reducir el tamaño de las etiquetas de las barras
+las = 1,
+xpd = TRUE)
+mtext("Tipos de alimentación", side = 2, line = 10, cex = 1.2)  # Título eje Y, alejado más
+mtext("Número de Pollos", side = 1, line = 5, cex = 1.2)       # Título eje X, alejado más
+mtext("Tipos de alimentación", side = 2, line = 10, cex = 1.2)
+tipos_alimentacion <- c("soybean", "casein", "linseed", "sunflower", "meatmeal", "horsebean")
+cantidad_pollos <- c(14, 12, 12, 12,11,10)
+ordenados <- order(cantidad_pollos, decreasing = TRUE)
+tipos_alimentacion <- tipos_alimentacion[ordenados]
+cantidad_pollos <- cantidad_pollos[ordenados]
+par(mar = c(12, 5, 4, 2))
+barplot(cantidad_pollos,
+names.arg = tipos_alimentacion,
+col = "thistle",
+main = "Frecuencias por tipos de alimentación",
+horiz = TRUE,  # Función para hacerlo horizontal
+font.main = 2,  # Título en negrita
+cex.main = 1.2,  # Función para aumentar el tamaño del título
+cex.lab = 0.8,   # Función para aumentar el tamaño de las etiquetas de los ejes
+cex.names = 0.7, # Función para reducir el tamaño de las etiquetas de las barras
+las = 1,
+xpd = TRUE)
+mtext("Tipos de alimentación", side = 2, line = 10, cex = 1.2)  # Título eje Y, alejado más
+mtext("Número de Pollos", side = 1, line = 5, cex = 1.2)       # Título eje X, alejado más
+mtext("Tipos de alimentación", side = 2, line = 10, cex = 1.2)
+mtext("Tipos de alimentación", side = 2, line = 14, cex = 1.2) # Título eje Y, alejado más
+tipos_alimentacion <- c("soybean", "casein", "linseed", "sunflower", "meatmeal", "horsebean")
+cantidad_pollos <- c(14, 12, 12, 12,11,10)
+ordenados <- order(cantidad_pollos, decreasing = TRUE)
+tipos_alimentacion <- tipos_alimentacion[ordenados]
+cantidad_pollos <- cantidad_pollos[ordenados]
+par(mar = c(12, 5, 4, 2))
+barplot(cantidad_pollos,
+names.arg = tipos_alimentacion,
+col = "thistle",
+main = "Frecuencias por tipos de alimentación",
+ylab= "Tipos de alimentación"
+horiz = TRUE,  # Función para hacerlo horizontal
+tipos_alimentacion <- c("soybean", "casein", "linseed", "sunflower", "meatmeal", "horsebean")
+cantidad_pollos <- c(14, 12, 12, 12,11,10)
+ordenados <- order(cantidad_pollos, decreasing = TRUE)
+tipos_alimentacion <- tipos_alimentacion[ordenados]
+cantidad_pollos <- cantidad_pollos[ordenados]
+par(mar = c(12, 5, 4, 2))
+barplot(cantidad_pollos,
+names.arg = tipos_alimentacion,
+col = "thistle",
+main = "Frecuencias por tipos de alimentación",
+ylab= "Tipos de alimentación",
+horiz = TRUE,  # Función para hacerlo horizontal
+font.main = 2,  # Título en negrita
+cex.main = 1.2,  # Función para aumentar el tamaño del título
+cex.lab = 0.8,   # Función para aumentar el tamaño de las etiquetas de los ejes
+cex.names = 0.7, # Función para reducir el tamaño de las etiquetas de las barras
+las = 1,
+xpd = TRUE)
+mtext("Tipos de alimentación", side = 2, line = 14, cex = 1.2) # Título eje Y, alejado más
+mtext("Número de Pollos", side = 1, line = 5, cex = 1.2)       # Título eje X, alejado más
+tipos_alimentacion <- c("soybean", "casein", "linseed", "sunflower", "meatmeal", "horsebean")
+cantidad_pollos <- c(14, 12, 12, 12,11,10)
+ordenados <- order(cantidad_pollos, decreasing = TRUE)
+tipos_alimentacion <- tipos_alimentacion[ordenados]
+cantidad_pollos <- cantidad_pollos[ordenados]
+par(mar = c(12, 6, 6, 2))
+barplot(cantidad_pollos,
+names.arg = tipos_alimentacion,
+col = "thistle",
+main = "Frecuencias por tipos de alimentación",
+ylab= "Tipos de alimentación",
+horiz = TRUE,  # Función para hacerlo horizontal
+font.main = 2,  # Título en negrita
+cex.main = 1.2,  # Función para aumentar el tamaño del título
+cex.lab = 0.8,   # Función para aumentar el tamaño de las etiquetas de los ejes
+cex.names = 0.7, # Función para reducir el tamaño de las etiquetas de las barras
+las = 1,
+xpd = TRUE)
+mtext("Tipos de alimentación", side = 2, line = 10, cex = 1.2) # Título eje Y, alejado más
+mtext("Número de Pollos", side = 1, line = 6, cex = 1.2)       # Título eje X, alejado más
+tipos_alimentacion <- c("soybean", "casein", "linseed", "sunflower", "meatmeal", "horsebean")
+cantidad_pollos <- c(14, 12, 12, 12,11,10)
+ordenados <- order(cantidad_pollos, decreasing = TRUE)
+tipos_alimentacion <- tipos_alimentacion[ordenados]
+cantidad_pollos <- cantidad_pollos[ordenados]
+par(mar = c(12, 6, 6, 2))
+barplot(cantidad_pollos,
+names.arg = tipos_alimentacion,
+col = "thistle",
+main = "Frecuencias por tipos de alimentación",
+ylab= "Tipos de alimentación",
+horiz = TRUE,  # Función para hacerlo horizontal
+font.main = 2,  # Título en negrita
+cex.main = 1.2,  # Función para aumentar el tamaño del título
+cex.lab = 0.8,   # Función para aumentar el tamaño de las etiquetas de los ejes
+cex.names = 0.7, # Función para reducir el tamaño de las etiquetas de las barras
+las = 1,
+xpd = TRUE)
+mtext("Tipos de alimentación", side = 2, line = 14, cex = 1.2) # Título eje Y, alejado más
+mtext("Número de Pollos", side = 1, line = 6, cex = 1.2)       # Título eje X, alejado más
+tipos_alimentacion <- c("soybean", "casein", "linseed", "sunflower", "meatmeal", "horsebean")
+cantidad_pollos <- c(14, 12, 12, 12,11,10)
+ordenados <- order(cantidad_pollos, decreasing = TRUE)
+tipos_alimentacion <- tipos_alimentacion[ordenados]
+cantidad_pollos <- cantidad_pollos[ordenados]
+par(mar = c(12, 6, 6, 2))
+barplot(cantidad_pollos,
+names.arg = tipos_alimentacion,
+col = "thistle",
+main = "Frecuencias por tipos de alimentación",
+ylab= "Tipos de alimentación",
+horiz = TRUE,# Función para hacerlo horizontal
+width = 1,
+font.main = 2,  # Título en negrita
+cex.main = 1.2,  # Función para aumentar el tamaño del título
+cex.lab = 0.8,   # Función para aumentar el tamaño de las etiquetas de los ejes
+cex.names = 0.7, # Función para reducir el tamaño de las etiquetas de las barras
+las = 1, # Función  para hacer que las etiquetas del eje Y estén verticales
+xpd = TRUE) #Función que permite que los elementos se muestren fuera de los márgenes
+mtext("Tipos de alimentación", side = 2, line = 14, cex = 1.2) # Título eje Y más alejado
+mtext("Número de Pollos", side = 1, line = 6, cex = 1.2)       # Título eje X más alejado
+row.names(feeds)
+barplot(feeds[order(feeds, decreasing = TRUE)],
+names.arg = c("casein",    "horsebean", "linseed",
+"meatmeal",  "soybean", "sunflower"), horiz = TRUE,
+col = "cornflowerblue",
+xlab = substitute(paste(bold("Alimentacion de los polluelos"))),
+ylab = substitute(paste(bold("Cantidad de los polluelo"))))
+row.names(feeds)
+barplot(feeds[order(feeds, decreasing = TRUE)],
+names.arg = c("casein",    "horsebean", "linseed",
+"meatmeal",  "soybean", "sunflower"), horiz = TRUE,
+col = "thistle",
+xlab = substitute(paste(bold("Número de pollos"))),
+ylab = substitute(paste(bold("Alimentación de los pollos"))))
+0.08^16
+#Importar datos de Índice de calidad
+calidad <- read.csv("CalidadDePlantulas.csv", header = T)
+calidad$Tratamiento <- as.factor(calidad$Tratamiento)
+boxplot(calidad$IE ~ calidad$Tratamiento,
+col= "burlywood"
+xlab= "Tratamientos",
+boxplot(calidad$IE ~ calidad$Tratamiento,
+col= "burlywood",
+xlab= "Tratamientos",
+ylab= "Índice de calidad"
+ylim= c(0.4,1.2),
+boxplot(calidad$IE ~ calidad$Tratamiento,
+col= "burlywood",
+xlab= "Tratamientos",
+ylab= "Índice de calidad",
+ylim= c(0.4,1.2),
+main="Vivero Irurbide")
+boxplot(calidad$IE ~ calidad$Tratamiento,
+col= "burlywood",
+xlab= "Tratamientos",
+ylab= "Índice de calidad",
+ylim= c(0.4,1.2),
+main="Vivero Iturbide")
+colores <- c("burlywood", "burlywood4")
+boxplot(calidad$IE ~ calidad$Tratamiento,
+col= "colores",
+xlab= "Tratamientos",
+ylab= "Índice de calidad",
+ylim= c(0.4,1.2),
+main="Vivero Iturbide")
+colores <- c("burlywood", "burlywood4")
+boxplot(calidad$IE ~ calidad$Tratamiento,
+col= "colores",
+xlab= "Tratamientos",
+ylab= "Índice de calidad",
+ylim= c(0.4,1.2),
+main="Vivero Iturbide")
+colores <- c("burlywood", "burlywood4")
+boxplot(calidad$IE ~ calidad$Tratamiento,
+col= colores,
+xlab= "Tratamientos",
+ylab= "Índice de calidad",
+ylim= c(0.4,1.2),
+main="Vivero Iturbide")
+tapply(calidad, IE, mean)
+tapply(calidad$IE,calidad$Tratamiento,mean)
+tapply(calidad$IE, calidad$Tratamiento, var)
+install.packages("ggplot2")
+#Revisar el comportamiento de los datos
+#Primero se debe correr el paquete que instalamos
+library(ggplot2)
+ggplot(calidad, aes(x=IE, color=Tratamiento))+
+geon_density()
+ggplot(calidad, aes(x=IE, color=Tratamiento))+
+geom_density()
+# La línea roja son los datos de ctrl, la azul es la de fertilizante
+# esto solo nos indica como se comportan los datos
+geom_histogram()
+ggplot(calidad, aes(x=IE, color=Tratamiento))+
+geom_histogram()
+ggplot(calidad, aes(x=IE, color=Tratamiento))+
+geom_density()
+library(ggplot2)
+ggplot(calidad, aes(x=IE, color=Tratamiento))+
+geom_density()
+tapply(calidad$IE, calidad$Tratamiento, sd)
+colores <- c("burlywood", "burlywood4")
+boxplot(calidad$IE ~ calidad$Tratamiento,
+col= colores,
+xlab= "Tratamientos",
+ylab= "Índice de calidad",
+ylim= c(0.4,1.2),
+main="Vivero Iturbide")
+f_ctlr <- subset(calidad, Tratamiento = "Ctrl")
+df_fert <- subset(calidad, Tratamiento = "Fert")
+df_ctlr <- subset(calidad, Tratamiento = "Ctrl")
+df_ctlr <- subset(calidad, Tratamiento = "Ctrl")
+df_fert <- subset(calidad, Tratamiento = "Fert")
+df_ctlr <- subset(calidad, Tratamiento = "Ctrl")
+View(df_ctlr)
+View(calidad)
+View(df_fert)
+qqnorm(df_ctrl$IE); qqline(df_ctrl$IE)
+qqnorm(df_ctlR$IE); qqline(df_ctlR$IE)
+qqnorm(df_ctlr$IE); qqline(df_ctlr$IE)
+qqnorm(df_fert$IE); qqline(df_fert$IE)
+par(mfrow=c(1,2))
+par(mfrow=c(1,2))
+qqnorm(df_ctlr$IE); qqline(df_ctlr$IE)
+qqnorm(df_fert$IE); qqline(df_fert$IE)
+par(mfrow=c(1,1)) #para que vuelva a mostrarse un solo gráfico
+par(mfrow=c(1,1))
+#Función para que la ventana de gráficas permita que nos
+#aparezca dos gráficos par(mfrow)
+#Una fila con dos columnas
+#
+par(mfrow=c(2,2))
+qqnorm(df_ctlr$IE); qqline(df_ctlr$IE)
+qqnorm(df_fert$IE); qqline(df_fert$IE)
+par(mfrow=c(1,1)) #para que vuelva a mostrarse un solo gráfico
+qqnorm(df_ctlr$IE); qqline(df_ctlr$IE)
+par(mfrow=c(1,1)) #para que vuelva a mostrarse un solo gráfico
+qqnorm(df_ctlr$IE); qqline(df_ctlr$IE)
+#Normalidad de los datos
+shapiro.test(df_ctlr$IE)
+shapiro.test(df_fert$IE)
+df_ctlr <- subset(calidad, Tratamiento == "Ctrl")
+df_fert <- subset(calidad, Tratamiento != "Fert")
+df_ctlr <- subset(calidad, Tratamiento == "Ctrl")
+df_fert <- subset(calidad, Tratamiento == "Fert")
+shapiro.test(df_ctlr$IE)
+shapiro.test(df_fert$IE)
+#Revisar homogeneidad de varianzas (criterio)
+var.test(df_ctlr$IE, df_fert$IE)
+var.test(df_ctlr$Tratamiento, df_fert$Tratamiento)
+var.test(df_ctlr$Tratamiento, df_fert$Tratamiento)
+var.test(df_ctlr$Tratamiento, df_fert$Tratamiento)
+#Revisar homogeneidad de varianzas (criterio)
+var.test(df_ctlr$IE, df_fert$Tratamiento)
+#Revisar homogeneidad de varianzas (criterio)
+var.test(df_ctlr$IE ~ df_fert$Tratamiento)
+#Revisar homogeneidad de varianzas (criterio)
+var.test(calidad$IE ~ calidad$Tratamiento)
+t.test(calidad$IE, calidad$Tratamiento, var.equal=T,
+alternative="two.sided")
+t.test(calidad$IE ~ calidad$Tratamiento,
+var.equal=T,
+alternative="two.sided")
+0.7676190 - 0.9066667
+cohens_efecto <- function(x,y) {
+n1 <- length(x)x; n2 <- length(y)
+d_cal <- cohens_efecto(df_ctlr$IE, df_fert$IE)
+cohens_efecto <- function(x,y) {
+n1 <- length(x); n2 <- length(y)
+s1 <- sd(x); s2 <- sd(y)
+sp <- sqrt(((n1-1)* s1^2 + (n2-1)* s2^2)/(n1+n2 - 2))
+(mean(x)- mean(y))/sp
+}
+d_cal <- cohens_efecto(df_ctlr$IE, df_fert$IE)
+c
+cohens_efecto(df_ctlr$IE, df_fert$IE)
+# LABORATORIO 1: Empezar a trabajar con datos en R
+# Primer contacto con la consola de R
+#Uso de R como calculadora científica
+# Gastos totales
+300 + 240 + 1527 + 400 + 1500 + 1833
+# Resultado de la operación [1] 5800
+# Asignación de variables y el valor de cada una
+celular <- 300
+transporte <- 240
+comestibles <- 1527
+gimnasio <- 400
+alquiler <- 1500
+otros <- 1833
+# Valor total de gastos por semestre y anualmente
+total <-celular+transporte+comestibles+gimnasio+alquiler+otros
+semestre <- total*5
+anual <- total*10
+#Otras funciones
+# Valor absoluto
+abs(10)
+abs (-4)
+# Raíz cuadrada
+sqrt(9)
+# Logaritmo natural
+log(2)
+2*9
+4+5 # también se puede colocar un comentario
+# Cuidar el uso de mayúsculas y minúsculas para obtener un resultado correcto
+celular <-300
+Celular <--300
+CELULAR <-8000
+celular+Celular
+CELULAR-celular
+# Help - Ayuda
+help (abs)
+help (mean)
+?abs
+?mean
+# Para buscar funciones relacionadas asociadas a una palabra clave (algo complementario)
+help.search("absolute")
+# Crear un vector
+gastos <- c(celular, transporte, comestibles, gimnasio, alquiler, otros)
+gastos
+# Crear un diagrama de barra de gastos con la función de barplot
+barplot(gastos)
+barplot
+# Se ordenan los datos de manera decreciente con la función de sort
+?sort
+sort(gastos, decreasing = TRUE)
+# Se crea una variable con nuestros datos ordenados para generar un nuevo barplot
+gastos_ord <- sort(gastos, descreasing = TRUE)
+# Editar el barplot para agregar el nombre de las variables en el gráfico
+barplot(gastos_ord, main = "Gastos mensuales",names.arg = c("otros", "comestibles",
+# Editar el barplot para agregar el nombre de las variables en el gráfico
+barplot(gastos_ord,
+main = "Gastos mensuales",names.arg = c("otros", "comestibles",
+"gimnasio","alquiler","transporte", "celular",
+col="hotpink"))
+barplot(gastos_ord,
+barplot(gastos_ord,
+main = "Gastos mensuales",names.arg = c("otros", "comestibles",
+"gimnasio","alquiler","transporte", "celular",
+col="hotpink")
+# Editar el barplot para agregar el nombre de las variables en el gráfico
+barplot(gastos_ord,
+barplot(gastos_ord,
+main = "Gastos mensuales",names.arg = c("otros", "comestibles",
+"gimnasio","alquiler","transporte", "celular",
+col="hotpink"))
+gastos_ord <- sort(gastos, descreasing = TRUE)
+gastos_ord <- sort(gastos_ord, descreasing = TRUE)
+gastos_ord <- sort(gastos, decreasing = TRUE)
+barplot(gastos_ord)
+barplot(gastos_ord,
+main = "Gastos mensuales",names.arg = c("otros", "comestibles",
+"gimnasio","alquiler","transporte", "celular",
+col="hotpink"))
+barplot(gastos_ord)
+barplot(gastos_ord,
+main = "Gastos mensuales",names.arg = c("otros", "comestibles",
+"gimnasio","alquiler","transporte", "celular",
+col="hotpink"))
+celular <- 300
+transporte <- 240
+comestibles <- 1527
+gimnasio <- 400
+alquiler <- 1500
+otros <- 1833
+gastos <- c(celular = 300, transporte = 150, comestibles = 400,
+gimnasio = 200, alquiler = 1000, otros = 250)
+gastos_ord <- sort(gastos, decreasing = TRUE)
+barplot(gastos_ord,
+main = "Gastos mensuales",
+names.arg = names(gastos_ord),
+col = "hotpink")
+d
+data_sub <- subset(iris, Species %in % c("versicolor", "virginica"))
+data("iris")
+head(iris)
+str(iris)
+summary(iris)
+data_sub <- subset(iris, Species %in % c("versicolor", "virginica"))
+head(data_sub)
+data_sub <- subset(iris, Species %in% c("versicolor", "virginica"))
+head(data_sub)
+table(data_sub$Species)
+summary(data_sub$Petal.Length)
+tapply(data_sub$Petal.Length, data_sub$Species, summary)
+#Función tapply para obtener promedio
+tapply(data_sub$Petal.Length, data_sub$Species, mean)
+#Función tapply para obtener desviación estándar
+tapply(data_sub$Petal.Length, data_sub$Species, sd)
+#Función tapply para obtener varianza
+tapply(data_sub$Petal.Length, data_sub$Species, var)
+View(iris)
+df_versicolor <- subset(iris, Species == "versicolor")
+df_virginica<- subset(iris, Species == "virginica")
+View(df_versicolor)
+View(df_virginica)
+par(mfrow=c(1,2))
+qqnorm(df_versicolor$Species); qqline(df_versicolor$Species)
+par(mfrow=c(1,1))
+qqnorm(df_versicolor$Species); qqline(df_versicolor$Species)
+par(mfrow=c(1,1))
+qqnorm(df_versicolor$Petal.Length); qqline(df_versicolor$Petal.Length)
+qqnorm(df_virginica$Petal.Length); qqline(df_virginica$Petal.Length)
+par(mfrow=c(1,2))
+qqnorm(df_versicolor$Petal.Length); qqline(df_versicolor$Petal.Length)
+qqnorm(df_virginica$Petal.Length); qqline(df_virginica$Petal.Length)
+#Pero podemos verificarlo de manera más precisa realizando una prueba de Shapiro-Wilkins
+shapiro.test(df_versicolor$Petal.Length)
+shapiro.test(df_virginica$Petal.Length)
+#Revisar homogeneidad de varianzas (segundo criterio)
+var.test(Petal.Length ~ Species, data= subset(iris, Species %in% c("versicolor", "virginica")))
+#Se cumplen con los 3 criterios necesarios para realizar una prueba de t-student
+t.test(Petal.Length ~ Species, data= iris_sub,
+var.equal =True )
+#Se cumplen con los 3 criterios necesarios para realizar una prueba de t-student
+t.test(Petal.Length ~ Species, data= iris,
+var.equal =True )
+iris_sub <- subset(iris,Species %in% c("versicolor", "virginica"))
+t.test(Petal.Length ~ Species, data= iris_sub,
+var.equal =True)
+t.test(Petal.Length ~ Species, data= iris_sub,
+var.equal = TRUE)
+#Resultado de la diferencia de las medias
+4.260 - 5.552
+cohens_efecto <- function(x,y) {
+n1 <- length(x); n2 <- length(y)
+s1 <- sd(x); s2 <- sd(y)
+sp <- sqrt(((n1-1)* s1^2 + (n2-1)* s2^2)/(n1+n2 - 2))
+(mean(x)- mean(y))/sp
+}
+d_cal <- cohens_efecto(df_versicolor$Petal.Length, df_virginica$Petal.Length)
+cohens_efecto(df_versicolor$Petal.Length, df_virginica$Petal.Length)
+d_cal <- cohens_efecto(df_virginica$Petal.Length, df_versicolor$Petal.Length)
+cohens_efecto(df_virginica$Petal.Length, df_versicolor$Petal.Length)
+#Resultado:
+ggplot(iris_sub, aes(x = Species, y = Petal.Length, fill = Species)) +
+geom_boxplot() +
+labs(title = "Comparación de Petal.Length entre especies",
+x = "Especie",
+y = "Longitud del Pétalo (cm)")
+library(ggplot2)
+ggplot(iris_sub, aes(x = Species, y = Petal.Length, fill = Species)) +
+geom_boxplot() +
+labs(title = "Comparación de Petal.Length entre especies",
+x = "Especie",
+y = "Longitud del Pétalo (cm)")
+#Se ingresan los datos
+costal<-c(87.7,80.01,77.28,78.76,81.52,74.2,80.71,79.5,77.87,81.94,80.7,
+82.32,75.78,80.19,83.91.79.4,77.52,77.62,81.4,74.89,82.95,73.59,
+costal<-c(87.7,80.01,77.28,78.76,81.52,74.2,80.71,79.5,77.87,81.94,80.7,
+82.32,75.78,80.19,83.91.79.4,77.52,77.62,81.4,74.89,82.95,73.59,
+costal<-c(87.7, 80.01, 77.28, 78.76, 81.52, 74.2, 80.71, 79.5, 77.87, 81.94, 80.7,
+82.32, 75.78, 80.19, 83.91, 79.4, 77.52, 77.62, 81.4, 74.89, 82.95, 73.59,
+77.92, 77.18, 79.83, 81.23, 79.28, 78.44, 79.01, 80.47, 76.23, 78.89,
+77.14, 69.94, 78.54, 79.7, 82.45, 77.29, 75.52, 77.21, 75.99, 81.94,
+80.41, 77.7)
+mean(costal)
+var(costal)
+sd(costal)
+boxplot(costal)
+t.test(costal,mu=80)
+#Importar datos
+sem<-read("mainproduccion.csv",header=T)
+#Importar datos
+sem<-read.csv("mainproduccion.csv",header = T)
+sem$Tiempo<-as.factor(sem$Tiempo,mean)
+sem$Tiempo<-as.factor(sem$Tiempo)
+tapply(sem$Kgsem,sem$Tiempo,mean)
+boxplot(sem$Kgsem ~ sem$Tiempo,
+col= "brown",
+xlab="Año",
+ylab="Semilla(kg)")
+#La función paired es para las pruebas de t student dependientes
+t.test(sem$Kgsem ~ sem$Tiempo, var.equal=T, paired=T)
+#La función paired es para las pruebas de t student dependientes
+t.test(sem$Kgsem ~ sem$Tiempo, paired=T)
+t2012<-subset(sem,sem$Tiempo=="T2012")
+t2013<-subset(sem,sem$Tiempo=="T2013")
+t.test(t2012$Kgsem ~ t2013$Tiempo, paired=T)
+t.test(t2012$Kgsem, t2013$Tiempo, paired=T)
+t.test(t2012$Kgsem,t2013$Kgsem, paired = T)
+t.test(t2012$Kgsem,t2013$Kgsem, paired = T, alternative="less")
+data("faithful")
+View("faithful")
+force(faithful)
+View(faithful)
+plot(faithful$waiting,faithful$eruptions)
+plot(faithful$waiting,faithful$eruptions,
+xlab="Tiempo de espero (min)",
+ylab="Erupción(min)",
+col="hotpink",
+pch=20)
+plot(faithful$waiting,faithful$eruptions,
+xlab="Tiempo de espera (min)",
+ylab="Erupción (min)",
+col="hotpink",
+pch=20)
+cor.test(faithful$waiting, faithful$eruptions,
+method = "pearson")
+#Para ver si lña distribución de mis datos es normal
+shapiro.test(faithful$eruptions)
+shapiro.test(faithful$waiting)
+cor.test(faithful$waiting, faithful$eruptions,
+method = "spearman")
+cor.test(faithful$waiting,faithful$eruptions,
+method="spearman")

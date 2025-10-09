@@ -1,0 +1,769 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Laboratorio-8.R},
+  pdfauthor={Usuario},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Laboratorio-8.R}
+\author{Usuario}
+\date{2025-10-02}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+
+\CommentTok{\#Laboratorio 8 }
+\CommentTok{\#Tarea: HW\_05 }
+\CommentTok{\#02/10/25 }
+\CommentTok{\#Evelyn Sofia Ruiz Galarza }
+\CommentTok{\#Dr.Marco Aurelio González Tagle }
+
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+
+\CommentTok{\# E J E R C I C I O  N.1 }
+
+\NormalTok{resp }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{( }
+\NormalTok{  Velocidad }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{9}\NormalTok{,}\DecValTok{14}\NormalTok{,}\DecValTok{24}\NormalTok{,}\DecValTok{29}\NormalTok{,}\DecValTok{34}\NormalTok{),}
+\NormalTok{  Abundancia  }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{23}\NormalTok{,}\DecValTok{16}\NormalTok{,}\DecValTok{12}\NormalTok{,}\DecValTok{48}\NormalTok{,}\DecValTok{43}\NormalTok{)}
+\NormalTok{)}
+
+\NormalTok{resp}\SpecialCharTok{$}\NormalTok{Rango\_velocidad }\OtherTok{\textless{}{-}} \FunctionTok{rank}\NormalTok{(resp}\SpecialCharTok{$}\NormalTok{Velocidad,}
+                             \AttributeTok{ties.method =} \StringTok{"first"}\NormalTok{)}
+\NormalTok{resp}\SpecialCharTok{$}\NormalTok{Rango\_Abundancia }\OtherTok{\textless{}{-}} \FunctionTok{rank}\NormalTok{(resp}\SpecialCharTok{$}\NormalTok{Abundancia, }
+                              \AttributeTok{ties.method =} \StringTok{"first"}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(Velocidad)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Laboratorio-8_files/figure-latex/unnamed-chunk-1-1.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(Abundancia)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Laboratorio-8_files/figure-latex/unnamed-chunk-1-2.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(resp}\SpecialCharTok{$}\NormalTok{Velocidad,}
+\NormalTok{     resp}\SpecialCharTok{$}\NormalTok{Abundancia,}
+     \AttributeTok{main =} \StringTok{"Diagrama de dispersión"}\NormalTok{,}
+     \AttributeTok{xlab =} \StringTok{"Velocidad de la corriente"}\NormalTok{,}
+     \AttributeTok{ylab =} \StringTok{"Abundancia de Efímeras"}\NormalTok{,}
+     \AttributeTok{pch =} \DecValTok{19}\NormalTok{,      }
+     \AttributeTok{col =} \StringTok{"olivedrab"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Laboratorio-8_files/figure-latex/unnamed-chunk-1-3.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Es estadisticamente significativa la correlación? }
+\CommentTok{\#Se rechaza la H0 o la H1? }
+\CommentTok{\#H0=No existe una correlación entre la velocidad del arroyo }
+\CommentTok{\#y la abundancia de efímeras}
+\CommentTok{\#H1=“Existe una correlación positiva entre la velocidad de los arroyos}
+\CommentTok{\#y la abundancia de efímeras }
+
+\NormalTok{resp}\SpecialCharTok{$}\NormalTok{dif}\OtherTok{\textless{}{-}}\NormalTok{ resp}\SpecialCharTok{$}\NormalTok{Rango\_velocidad }\SpecialCharTok{{-}}
+\NormalTok{  resp}\SpecialCharTok{$}\NormalTok{Rango\_Abundancia}
+\NormalTok{resp}\SpecialCharTok{$}\NormalTok{dif2}\OtherTok{\textless{}{-}}\NormalTok{ resp}\SpecialCharTok{$}\NormalTok{dif}\SpecialCharTok{\^{}}\DecValTok{2}
+\FunctionTok{sum}\NormalTok{(resp}\SpecialCharTok{$}\NormalTok{dif2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{length}\NormalTok{(resp}\SpecialCharTok{$}\NormalTok{Rango\_velocidad)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{length}\NormalTok{(resp}\SpecialCharTok{$}\NormalTok{Rango\_Abundancia)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Para ver si la distribución de mis datos es normal }
+
+\FunctionTok{shapiro.test}\NormalTok{(resp}\SpecialCharTok{$}\NormalTok{Velocidad....c.}\DecValTok{2}\NormalTok{..}\DecValTok{3}\NormalTok{..}\DecValTok{5}\NormalTok{..}\DecValTok{9}\NormalTok{..}\DecValTok{14}\NormalTok{..}\DecValTok{24}\NormalTok{..}\DecValTok{29}\NormalTok{..}\FloatTok{34.}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  resp$Velocidad....c.2..3..5..9..14..24..29..34.
+## W = 0.89444, p-value = 0.2572
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{shapiro.test}\NormalTok{(resp}\SpecialCharTok{$}\NormalTok{Abundancia....c.}\DecValTok{6}\NormalTok{..}\DecValTok{3}\NormalTok{..}\DecValTok{5}\NormalTok{..}\DecValTok{23}\NormalTok{..}\DecValTok{16}\NormalTok{..}\DecValTok{12}\NormalTok{..}\DecValTok{48}\NormalTok{..}\FloatTok{43.}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  resp$Abundancia....c.6..3..5..23..16..12..48..43.
+## W = 0.85403, p-value = 0.1046
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Los datos no son normales, ya que son }
+\CommentTok{\#mayores a 0.05 es por eso que se utiliza el método}
+\CommentTok{\#de Spearman }
+
+
+\CommentTok{\#Función de correlación }
+
+\FunctionTok{cor.test}\NormalTok{(resp}\SpecialCharTok{$}\NormalTok{Rango\_velocidad,}
+\NormalTok{         resp}\SpecialCharTok{$}\NormalTok{Rango\_Abundancia,}
+         \AttributeTok{method =} \StringTok{"spearman"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Spearman's rank correlation rho
+## 
+## data:  resp$Rango_velocidad and resp$Rango_Abundancia
+## S = 16, p-value = 0.02178
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##       rho 
+## 0.8095238
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor.test}\NormalTok{(resp}\SpecialCharTok{$}\NormalTok{Velocidad....c.}\DecValTok{2}\NormalTok{..}\DecValTok{3}\NormalTok{..}\DecValTok{5}\NormalTok{..}\DecValTok{9}\NormalTok{..}\DecValTok{14}\NormalTok{..}\DecValTok{24}\NormalTok{..}\DecValTok{29}\NormalTok{..}\FloatTok{34.}\NormalTok{, }
+\NormalTok{         resp}\SpecialCharTok{$}\NormalTok{Abundancia....c.}\DecValTok{6}\NormalTok{..}\DecValTok{3}\NormalTok{..}\DecValTok{5}\NormalTok{..}\DecValTok{23}\NormalTok{..}\DecValTok{16}\NormalTok{..}\DecValTok{12}\NormalTok{..}\DecValTok{48}\NormalTok{..}\FloatTok{43.}\NormalTok{,}
+         \AttributeTok{method =} \StringTok{"spearman"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Spearman's rank correlation rho
+## 
+## data:  resp$Velocidad....c.2..3..5..9..14..24..29..34. and resp$Abundancia....c.6..3..5..23..16..12..48..43.
+## S = 16, p-value = 0.02178
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##       rho 
+## 0.8095238
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#p=VALUE:  0.02178 }
+\CommentTok{\#R= 0.80 Nos indica una correlación muy alta }
+\CommentTok{\#Ambas variables se explican una a la otra }
+\CommentTok{\#Se rechaza la Hipótesis nula }
+
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+
+\CommentTok{\#E J E R C I C I O N.2 }
+
+\NormalTok{datos\_suelo }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"suelo.csv"}\NormalTok{)}
+
+\FunctionTok{library}\NormalTok{(Hmisc)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Adjuntando el paquete: 'Hmisc'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     format.pval, units
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(reshape2)}
+
+\CommentTok{\#Para empezar a trabajar con la base de datos }
+\CommentTok{\#se selecciona primero todos los datos númericos }
+
+\NormalTok{variables }\OtherTok{\textless{}{-}}\NormalTok{ datos\_suelo[, }\FunctionTok{c}\NormalTok{(}\StringTok{"pH"}\NormalTok{, }\StringTok{"N"}\NormalTok{, }\StringTok{"Dens"}\NormalTok{, }\StringTok{"P"}\NormalTok{, }\StringTok{"Ca"}\NormalTok{, }\StringTok{"Mg"}\NormalTok{,}\StringTok{"K"}\NormalTok{,}
+                       \StringTok{"Na"}\NormalTok{, }\StringTok{"Conduc"}\NormalTok{)]}
+
+\CommentTok{\#Se calculan correlaciones y p{-}values con Pearson }
+
+\NormalTok{resultados }\OtherTok{\textless{}{-}} \FunctionTok{rcorr}\NormalTok{(}\FunctionTok{as.matrix}\NormalTok{(variables),}\AttributeTok{type =} \StringTok{"pearson"}\NormalTok{)}
+
+\CommentTok{\#Extraer resultados de correlaciones y p{-}values }
+
+\NormalTok{cor\_matrix }\OtherTok{\textless{}{-}}\NormalTok{ resultados}\SpecialCharTok{$}\NormalTok{r}
+\NormalTok{p\_matrix }\OtherTok{\textless{}{-}}\NormalTok{ resultados}\SpecialCharTok{$}\NormalTok{P}
+
+\CommentTok{\#Upper.tri para convertir los datos a una tabla sin }
+\CommentTok{\#duplicados ni diagonal}
+
+\NormalTok{get\_corr\_table }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(cor\_matrix, p\_matrix) \{}
+\NormalTok{  ut }\OtherTok{\textless{}{-}} \FunctionTok{upper.tri}\NormalTok{(cor\_matrix)}
+  \FunctionTok{data.frame}\NormalTok{(}
+    \AttributeTok{Var1=}\FunctionTok{rownames}\NormalTok{(cor\_matrix)[}\FunctionTok{row}\NormalTok{(cor\_matrix)[ut]],}
+    \AttributeTok{Var2=}\FunctionTok{colnames}\NormalTok{(cor\_matrix)[}\FunctionTok{col}\NormalTok{(cor\_matrix)[ut]],}
+    \AttributeTok{Correlation =}\NormalTok{ cor\_matrix[ut],}
+    \AttributeTok{p\_value=}\NormalTok{ p\_matrix[ut]}
+\NormalTok{  )}
+\NormalTok{\}}
+
+\NormalTok{results }\OtherTok{\textless{}{-}} \FunctionTok{get\_corr\_table}\NormalTok{(cor\_matrix, p\_matrix)}
+
+\FunctionTok{print}\NormalTok{(results)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Var1   Var2 Correlation      p_value
+## 1    pH      N  0.38811455 0.3895987485
+## 2    pH   Dens -0.77369126 0.0412492796
+## 3     N   Dens -0.79266282 0.0335058897
+## 4    pH      P  0.42061197 0.3473966472
+## 5     N      P  0.94101589 0.0015719124
+## 6  Dens      P -0.78657314 0.0358942516
+## 7    pH     Ca  0.56848734 0.1829719669
+## 8     N     Ca  0.69412870 0.0835908337
+## 9  Dens     Ca -0.79809646 0.0314518872
+## 10    P     Ca  0.57439198 0.1774320223
+## 11   pH     Mg -0.61115331 0.1448352643
+## 12    N     Mg -0.43103915 0.3342844506
+## 13 Dens     Mg  0.45828088 0.3010542750
+## 14    P     Mg -0.45099416 0.3097948199
+## 15   Ca     Mg -0.01009406 0.9828646629
+## 16   pH      K  0.37094191 0.4126847718
+## 17    N      K  0.18594583 0.6897574314
+## 18 Dens      K -0.49128624 0.2628616908
+## 19    P      K  0.43976248 0.3234801257
+## 20   Ca      K  0.18456449 0.6919827944
+## 21   Mg      K -0.01344459 0.9771778187
+## 22   pH     Na -0.71143799 0.0730110649
+## 23    N     Na -0.85248154 0.0148032129
+## 24 Dens     Na  0.89502105 0.0064764582
+## 25    P     Na -0.93224595 0.0022122973
+## 26   Ca     Na -0.65215650 0.1124057616
+## 27   Mg     Na  0.55987093 0.1912050716
+## 28    K     Na -0.51761397 0.2340925564
+## 29   pH Conduc -0.80139013 0.0302420518
+## 30    N Conduc -0.78881244 0.0350053599
+## 31 Dens Conduc  0.95770170 0.0006907938
+## 32    P Conduc -0.80028840 0.0306437882
+## 33   Ca Conduc -0.84959432 0.0155129011
+## 34   Mg Conduc  0.39241421 0.3839018130
+## 35    K Conduc -0.50660743 0.2459325415
+## 36   Na Conduc  0.92307132 0.0030236919
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Se debe adaptar la información en un cuadro como el }
+\CommentTok{\#Cuadro ejemplo 3 }
+
+\CommentTok{\#Crear una columna de "Conjunto"}
+\NormalTok{results}\SpecialCharTok{$}\NormalTok{Conjunto }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(results}\SpecialCharTok{$}\NormalTok{Var1, }\StringTok{"{-}"}\NormalTok{, results}\SpecialCharTok{$}\NormalTok{Var2)}
+
+\CommentTok{\#Se reordenan las columnas }
+\NormalTok{Tabla\_final }\OtherTok{\textless{}{-}}\NormalTok{ results[, }\FunctionTok{c}\NormalTok{(}\StringTok{"Conjunto"}\NormalTok{,}\StringTok{"Correlation"}\NormalTok{,}\StringTok{"p\_value"}\NormalTok{)]}
+
+\CommentTok{\#Renombrar }
+\FunctionTok{colnames}\NormalTok{(Tabla\_final) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Conjunto"}\NormalTok{,}\StringTok{"r"}\NormalTok{,}\StringTok{"valor de P"}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(Tabla\_final)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         Conjunto           r   valor de P
+## 1         pH - N  0.38811455 0.3895987485
+## 2      pH - Dens -0.77369126 0.0412492796
+## 3       N - Dens -0.79266282 0.0335058897
+## 4         pH - P  0.42061197 0.3473966472
+## 5          N - P  0.94101589 0.0015719124
+## 6       Dens - P -0.78657314 0.0358942516
+## 7        pH - Ca  0.56848734 0.1829719669
+## 8         N - Ca  0.69412870 0.0835908337
+## 9      Dens - Ca -0.79809646 0.0314518872
+## 10        P - Ca  0.57439198 0.1774320223
+## 11       pH - Mg -0.61115331 0.1448352643
+## 12        N - Mg -0.43103915 0.3342844506
+## 13     Dens - Mg  0.45828088 0.3010542750
+## 14        P - Mg -0.45099416 0.3097948199
+## 15       Ca - Mg -0.01009406 0.9828646629
+## 16        pH - K  0.37094191 0.4126847718
+## 17         N - K  0.18594583 0.6897574314
+## 18      Dens - K -0.49128624 0.2628616908
+## 19         P - K  0.43976248 0.3234801257
+## 20        Ca - K  0.18456449 0.6919827944
+## 21        Mg - K -0.01344459 0.9771778187
+## 22       pH - Na -0.71143799 0.0730110649
+## 23        N - Na -0.85248154 0.0148032129
+## 24     Dens - Na  0.89502105 0.0064764582
+## 25        P - Na -0.93224595 0.0022122973
+## 26       Ca - Na -0.65215650 0.1124057616
+## 27       Mg - Na  0.55987093 0.1912050716
+## 28        K - Na -0.51761397 0.2340925564
+## 29   pH - Conduc -0.80139013 0.0302420518
+## 30    N - Conduc -0.78881244 0.0350053599
+## 31 Dens - Conduc  0.95770170 0.0006907938
+## 32    P - Conduc -0.80028840 0.0306437882
+## 33   Ca - Conduc -0.84959432 0.0155129011
+## 34   Mg - Conduc  0.39241421 0.3839018130
+## 35    K - Conduc -0.50660743 0.2459325415
+## 36   Na - Conduc  0.92307132 0.0030236919
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(corrplot)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## corrplot 0.95 loaded
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{orden }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"K"}\NormalTok{, }\StringTok{"pH"}\NormalTok{,}\StringTok{"P"}\NormalTok{,}\StringTok{"N"}\NormalTok{,}\StringTok{"Ca"}\NormalTok{,}\StringTok{"Mg"}\NormalTok{,}\StringTok{"Dens"}\NormalTok{,}\StringTok{"Na"}\NormalTok{,}\StringTok{"Conduc"}\NormalTok{)}
+\NormalTok{cor\_matrix2 }\OtherTok{\textless{}{-}}\NormalTok{ cor\_matrix[orden, orden]}
+
+\FunctionTok{corrplot}\NormalTok{(cor\_matrix2, }
+         \AttributeTok{method =} \StringTok{"circle"}\NormalTok{, }
+         \AttributeTok{type=}\StringTok{"upper"}\NormalTok{,}
+         \AttributeTok{order=}\StringTok{"original"}\NormalTok{,}
+         \AttributeTok{tl.col=} \StringTok{"black"}\NormalTok{,}
+         \AttributeTok{tl.srt=} \DecValTok{45}\NormalTok{,}
+         \AttributeTok{cl.cex =}\DecValTok{1}\NormalTok{,}
+         \AttributeTok{cl.pos=}\StringTok{"r"}\NormalTok{,}
+\NormalTok{         )}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Laboratorio-8_files/figure-latex/unnamed-chunk-1-4.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+
+\CommentTok{\# E J E R C I C I O N.3 }
+
+\CommentTok{\#Cargar base de datos }
+\FunctionTok{data}\NormalTok{(}\StringTok{"anscombe"}\NormalTok{)}
+
+\CommentTok{\#Ajustar márgenes mínimos: abajo, }
+\CommentTok{\#izquierda, arrib, derecha }
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar=}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\CommentTok{\#Establecer una cuadrícula de 2x2 }
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\CommentTok{\#Reducir el espacio entre ejes y reducir etiquetas }
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mgp=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\DecValTok{0}\NormalTok{))}
+
+\CommentTok{\#Configurar área de gráficos con 2 filas, 2 columnas}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+
+\CommentTok{\#Crear los 4 gráficos solicitados }
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{) \{}
+\NormalTok{x }\OtherTok{\textless{}{-}}\NormalTok{ anscombe[,i] }\CommentTok{\#Columnas x1, x2, x3, x4 }
+\NormalTok{y }\OtherTok{\textless{}{-}}\NormalTok{ anscombe [, i }\SpecialCharTok{+} \DecValTok{4}\NormalTok{ ] }\CommentTok{\#Columnas y1,y2,y3,y4}
+
+\CommentTok{\#Gráficos }
+
+\FunctionTok{plot}\NormalTok{(x, y, }
+     \AttributeTok{main=} \FunctionTok{paste}\NormalTok{(}\StringTok{"Conjunto"}\NormalTok{, i), }
+     \AttributeTok{xlab=}\FunctionTok{paste}\NormalTok{(}\StringTok{"x"}\NormalTok{, i),}
+     \AttributeTok{ylab=}\FunctionTok{paste}\NormalTok{(}\StringTok{"y"}\NormalTok{, i),}
+     \AttributeTok{pch=} \DecValTok{19}\NormalTok{, }
+     \AttributeTok{col=} \StringTok{"cornsilk4"}\NormalTok{, }
+     \AttributeTok{cex=}\FloatTok{1.5}\NormalTok{,}
+     \AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{19}\NormalTok{),}
+     \AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{13}\NormalTok{))}
+
+\CommentTok{\#Línea de regresión }
+\FunctionTok{abline}\NormalTok{(}\FunctionTok{lm}\NormalTok{(y }\SpecialCharTok{\textasciitilde{}}\NormalTok{ x ), }\AttributeTok{col=} \StringTok{"darkseagreen4"}\NormalTok{, }\AttributeTok{lwd=} \DecValTok{3}\NormalTok{)}
+
+\CommentTok{\#Estadísticas }
+
+\NormalTok{r }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(}\FunctionTok{cor}\NormalTok{(x,y),}\DecValTok{3}\NormalTok{)}
+\FunctionTok{legend}\NormalTok{(}\StringTok{"topleft"}\NormalTok{, }
+       \AttributeTok{legend =} \FunctionTok{paste}\NormalTok{(}\StringTok{"r="}\NormalTok{,r),}
+       \AttributeTok{bty=}\StringTok{"n"}\NormalTok{,}
+       \AttributeTok{text.col=}\StringTok{"burlywood4"}\NormalTok{,}
+       \AttributeTok{cex=}\FloatTok{1.2}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Laboratorio-8_files/figure-latex/unnamed-chunk-1-5.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Para restaurarlo a configuración normal }
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+
+\CommentTok{\# E J E R C I C I O N.3 }
+
+\NormalTok{x1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{10.0}\NormalTok{, }\FloatTok{8.0}\NormalTok{, }\FloatTok{13.0}\NormalTok{, }\FloatTok{9.0}\NormalTok{, }\FloatTok{11.0}\NormalTok{, }\FloatTok{14.0}\NormalTok{, }\FloatTok{6.0}\NormalTok{, }\FloatTok{4.0}\NormalTok{, }\FloatTok{12.0}\NormalTok{, }\FloatTok{7.0}\NormalTok{, }\FloatTok{5.0}\NormalTok{)}
+\NormalTok{y1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{8.04}\NormalTok{, }\FloatTok{6.95}\NormalTok{, }\FloatTok{7.58}\NormalTok{, }\FloatTok{8.81}\NormalTok{, }\FloatTok{8.33}\NormalTok{, }\FloatTok{9.96}\NormalTok{, }\FloatTok{7.24}\NormalTok{, }\FloatTok{4.26}\NormalTok{, }\FloatTok{10.84}\NormalTok{, }\FloatTok{4.82}\NormalTok{, }\FloatTok{5.68}\NormalTok{)}
+
+\NormalTok{x2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{10.0}\NormalTok{, }\FloatTok{8.0}\NormalTok{, }\FloatTok{13.0}\NormalTok{, }\FloatTok{9.0}\NormalTok{, }\FloatTok{11.0}\NormalTok{, }\FloatTok{14.0}\NormalTok{, }\FloatTok{6.0}\NormalTok{, }\FloatTok{4.0}\NormalTok{, }\FloatTok{12.0}\NormalTok{, }\FloatTok{7.0}\NormalTok{, }\FloatTok{5.0}\NormalTok{)}
+\NormalTok{y2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{9.14}\NormalTok{, }\FloatTok{8.14}\NormalTok{, }\FloatTok{8.74}\NormalTok{, }\FloatTok{8.77}\NormalTok{, }\FloatTok{9.26}\NormalTok{, }\FloatTok{8.10}\NormalTok{, }\FloatTok{6.13}\NormalTok{, }\FloatTok{3.10}\NormalTok{, }\FloatTok{9.13}\NormalTok{, }\FloatTok{7.26}\NormalTok{, }\FloatTok{4.74}\NormalTok{)}
+
+\NormalTok{x3 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{10.0}\NormalTok{, }\FloatTok{8.0}\NormalTok{, }\FloatTok{13.0}\NormalTok{, }\FloatTok{9.0}\NormalTok{, }\FloatTok{11.0}\NormalTok{, }\FloatTok{14.0}\NormalTok{, }\FloatTok{6.0}\NormalTok{, }\FloatTok{4.0}\NormalTok{, }\FloatTok{12.0}\NormalTok{, }\FloatTok{7.0}\NormalTok{, }\FloatTok{5.0}\NormalTok{)}
+\NormalTok{y3 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{7.46}\NormalTok{, }\FloatTok{6.77}\NormalTok{, }\FloatTok{12.74}\NormalTok{, }\FloatTok{7.11}\NormalTok{, }\FloatTok{7.81}\NormalTok{, }\FloatTok{8.84}\NormalTok{, }\FloatTok{6.08}\NormalTok{, }\FloatTok{5.39}\NormalTok{, }\FloatTok{8.15}\NormalTok{, }\FloatTok{6.42}\NormalTok{, }\FloatTok{5.73}\NormalTok{)}
+
+\NormalTok{x4 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{8.0}\NormalTok{, }\FloatTok{8.0}\NormalTok{, }\FloatTok{8.0}\NormalTok{, }\FloatTok{8.0}\NormalTok{, }\FloatTok{8.0}\NormalTok{, }\FloatTok{8.0}\NormalTok{, }\FloatTok{8.0}\NormalTok{,}\FloatTok{19.0}\NormalTok{, }\FloatTok{8.0}\NormalTok{, }\FloatTok{8.0}\NormalTok{, }\FloatTok{8.0}\NormalTok{)}
+\NormalTok{y4 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{6.58}\NormalTok{, }\FloatTok{5.76}\NormalTok{, }\FloatTok{7.71}\NormalTok{, }\FloatTok{8.84}\NormalTok{, }\FloatTok{8.47}\NormalTok{, }\FloatTok{7.04}\NormalTok{, }\FloatTok{5.25}\NormalTok{, }\FloatTok{12.50}\NormalTok{, }\FloatTok{5.56}\NormalTok{, }\FloatTok{7.91}\NormalTok{, }\FloatTok{6.8}\NormalTok{)}
+
+\NormalTok{calculo\_prop}\OtherTok{\textless{}{-}}  \ControlFlowTok{function}\NormalTok{(x, y)\{}
+\NormalTok{      modelo }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(y }\SpecialCharTok{\textasciitilde{}}\NormalTok{ x)}
+      \FunctionTok{list}\NormalTok{(}
+        \AttributeTok{media\_x =} \FunctionTok{mean}\NormalTok{(x),}
+        \AttributeTok{var\_x =} \FunctionTok{var}\NormalTok{(x),}
+        \AttributeTok{media\_y =} \FunctionTok{mean}\NormalTok{(y),}
+        \AttributeTok{var\_y =} \FunctionTok{var}\NormalTok{(y),}
+        \AttributeTok{correlacion =} \FunctionTok{cor}\NormalTok{(x,y),}
+        \AttributeTok{regresion =} \FunctionTok{coef}\NormalTok{(modelo),}
+        \AttributeTok{R2 =} \FunctionTok{summary}\NormalTok{(modelo)}\SpecialCharTok{$}\NormalTok{r.squared}
+\NormalTok{      )}
+\NormalTok{\}}
+\CommentTok{\#Resultados para cada conjunto}
+\NormalTok{result1 }\OtherTok{\textless{}{-}} \FunctionTok{calculo\_prop}\NormalTok{(x1, y1)}
+\NormalTok{result2 }\OtherTok{\textless{}{-}} \FunctionTok{calculo\_prop}\NormalTok{(x2, y2)}
+\NormalTok{result3 }\OtherTok{\textless{}{-}} \FunctionTok{calculo\_prop}\NormalTok{(x3, y3)}
+\NormalTok{result4 }\OtherTok{\textless{}{-}} \FunctionTok{calculo\_prop}\NormalTok{(x4, y4)}
+
+\CommentTok{\#Mostrar resultados }
+\NormalTok{result1 }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $media_x
+## [1] 9
+## 
+## $var_x
+## [1] 11
+## 
+## $media_y
+## [1] 7.500909
+## 
+## $var_y
+## [1] 4.127269
+## 
+## $correlacion
+## [1] 0.8164205
+## 
+## $regresion
+## (Intercept)           x 
+##   3.0000909   0.5000909 
+## 
+## $R2
+## [1] 0.6665425
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{result2 }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $media_x
+## [1] 9
+## 
+## $var_x
+## [1] 11
+## 
+## $media_y
+## [1] 7.500909
+## 
+## $var_y
+## [1] 4.127629
+## 
+## $correlacion
+## [1] 0.8162365
+## 
+## $regresion
+## (Intercept)           x 
+##    3.000909    0.500000 
+## 
+## $R2
+## [1] 0.666242
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{result3 }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $media_x
+## [1] 9
+## 
+## $var_x
+## [1] 11
+## 
+## $media_y
+## [1] 7.5
+## 
+## $var_y
+## [1] 4.12262
+## 
+## $correlacion
+## [1] 0.8162867
+## 
+## $regresion
+## (Intercept)           x 
+##   3.0024545   0.4997273 
+## 
+## $R2
+## [1] 0.666324
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{result4 }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $media_x
+## [1] 9
+## 
+## $var_x
+## [1] 11
+## 
+## $media_y
+## [1] 7.492727
+## 
+## $var_y
+## [1] 4.134982
+## 
+## $correlacion
+## [1] 0.8166967
+## 
+## $regresion
+## (Intercept)           x 
+##   2.9861818   0.5007273 
+## 
+## $R2
+## [1] 0.6669935
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Para mostrar los resultados en un formato tabla }
+\NormalTok{calc\_prop\_df }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x, y)\{}
+\NormalTok{  modelo }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(y }\SpecialCharTok{\textasciitilde{}}\NormalTok{ x)}
+  \FunctionTok{data.frame}\NormalTok{(}
+    \StringTok{\textasciigrave{}}\AttributeTok{Media de x}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{mean}\NormalTok{(x),}
+    \StringTok{\textasciigrave{}}\AttributeTok{Varianza de x}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{var}\NormalTok{(x),}
+    \StringTok{\textasciigrave{}}\AttributeTok{Media de y}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{mean}\NormalTok{(y),}
+    \StringTok{\textasciigrave{}}\AttributeTok{Varianza de y}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{var}\NormalTok{(y),}
+    \StringTok{\textasciigrave{}}\AttributeTok{Correlación x{-}y}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{cor}\NormalTok{(x,y),}
+    \StringTok{\textasciigrave{}}\AttributeTok{Intersección}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{coef}\NormalTok{(modelo)[}\DecValTok{1}\NormalTok{],}
+    \StringTok{\textasciigrave{}}\AttributeTok{Pendiente}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{coef}\NormalTok{(modelo)[}\DecValTok{2}\NormalTok{],}
+    \StringTok{\textasciigrave{}}\AttributeTok{R2}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{summary}\NormalTok{(modelo)}\SpecialCharTok{$}\NormalTok{r.squared}
+\NormalTok{  )}
+\NormalTok{\}}
+
+\CommentTok{\#Resultados para cada conjunto}
+\NormalTok{df1 }\OtherTok{\textless{}{-}} \FunctionTok{calc\_prop\_df}\NormalTok{(x1, y1)}
+\NormalTok{df2 }\OtherTok{\textless{}{-}} \FunctionTok{calc\_prop\_df}\NormalTok{(x2, y2)}
+\NormalTok{df3 }\OtherTok{\textless{}{-}} \FunctionTok{calc\_prop\_df}\NormalTok{(x3, y3)}
+\NormalTok{df4 }\OtherTok{\textless{}{-}} \FunctionTok{calc\_prop\_df}\NormalTok{(x4, y4)}
+
+\CommentTok{\#Se une todo en una sola tabla }
+
+\NormalTok{cuadro4 }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(df1, df2, df3, df4)}
+\FunctionTok{rownames}\NormalTok{(cuadro4) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Conjunto I"}\NormalTok{, }\StringTok{"Conjunto II"}\NormalTok{, }\StringTok{"Conjunto III"}\NormalTok{, }\StringTok{"Conjunto IV"}\NormalTok{)}
+
+\FunctionTok{print}\NormalTok{(cuadro4)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              Media.de.x Varianza.de.x Media.de.y Varianza.de.y Correlación.x.y
+## Conjunto I            9            11   7.500909      4.127269       0.8164205
+## Conjunto II           9            11   7.500909      4.127629       0.8162365
+## Conjunto III          9            11   7.500000      4.122620       0.8162867
+## Conjunto IV           9            11   7.492727      4.134982       0.8166967
+##              Intersección Pendiente        R2
+## Conjunto I       3.000091 0.5000909 0.6665425
+## Conjunto II      3.000909 0.5000000 0.6662420
+## Conjunto III     3.002455 0.4997273 0.6663240
+## Conjunto IV      2.986182 0.5007273 0.6669935
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Para generar el cuadro 5 }
+
+\NormalTok{cuadro5 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{I\_x =}\NormalTok{x1, }\AttributeTok{I\_y=}\NormalTok{ y1, }
+  \AttributeTok{II\_x=}\NormalTok{ x2, }\AttributeTok{II\_y =}\NormalTok{ y2,}
+  \AttributeTok{III\_x =}\NormalTok{ x3, }\AttributeTok{III\_y =}\NormalTok{ y3,}
+  \AttributeTok{IV\_x =}\NormalTok{ x4, }\AttributeTok{IV\_y =}\NormalTok{ y4}
+\NormalTok{)}
+
+\FunctionTok{print}\NormalTok{(cuadro5)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    I_x   I_y II_x II_y III_x III_y IV_x  IV_y
+## 1   10  8.04   10 9.14    10  7.46    8  6.58
+## 2    8  6.95    8 8.14     8  6.77    8  5.76
+## 3   13  7.58   13 8.74    13 12.74    8  7.71
+## 4    9  8.81    9 8.77     9  7.11    8  8.84
+## 5   11  8.33   11 9.26    11  7.81    8  8.47
+## 6   14  9.96   14 8.10    14  8.84    8  7.04
+## 7    6  7.24    6 6.13     6  6.08    8  5.25
+## 8    4  4.26    4 3.10     4  5.39   19 12.50
+## 9   12 10.84   12 9.13    12  8.15    8  5.56
+## 10   7  4.82    7 7.26     7  6.42    8  7.91
+## 11   5  5.68    5 4.74     5  5.73    8  6.80
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
