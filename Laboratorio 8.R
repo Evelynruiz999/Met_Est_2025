@@ -1,0 +1,270 @@
+##############################################################################
+
+#Laboratorio 8 
+#Tarea: HW_05 
+#02/10/25 
+#Evelyn Sofia Ruiz Galarza 
+#Dr.Marco Aurelio González Tagle 
+
+##############################################################################
+
+# E J E R C I C I O  N.1 
+
+resp <- data.frame( 
+  Velocidad <- c(2,3,5,9,14,24,29,34),
+  Abundancia  <- c(6,3,5,23,16,12,48,43)
+)
+
+resp$Rango_velocidad <- rank(resp$Velocidad,
+                             ties.method = "first")
+resp$Rango_Abundancia <- rank(resp$Abundancia, 
+                              ties.method = "first")
+plot(Velocidad)
+plot(Abundancia)
+plot(resp$Velocidad,
+     resp$Abundancia,
+     main = "Diagrama de dispersión",
+     xlab = "Velocidad de la corriente",
+     ylab = "Abundancia de Efímeras",
+     pch = 19,      
+     col = "olivedrab")
+
+#Es estadisticamente significativa la correlación? 
+#Se rechaza la H0 o la H1? 
+#H0=No existe una correlación entre la velocidad del arroyo 
+#y la abundancia de efímeras
+#H1=“Existe una correlación positiva entre la velocidad de los arroyos
+#y la abundancia de efímeras 
+
+resp$dif<- resp$Rango_velocidad -
+  resp$Rango_Abundancia
+resp$dif2<- resp$dif^2
+sum(resp$dif2)
+
+length(resp$Rango_velocidad)
+length(resp$Rango_Abundancia)
+
+#Para ver si la distribución de mis datos es normal 
+
+shapiro.test(resp$Velocidad....c.2..3..5..9..14..24..29..34.)
+shapiro.test(resp$Abundancia....c.6..3..5..23..16..12..48..43.)
+
+#Los datos no son normales, ya que son 
+#mayores a 0.05 es por eso que se utiliza el método
+#de Spearman 
+
+
+#Función de correlación 
+
+cor.test(resp$Rango_velocidad,
+         resp$Rango_Abundancia,
+         method = "spearman")
+
+cor.test(resp$Velocidad....c.2..3..5..9..14..24..29..34., 
+         resp$Abundancia....c.6..3..5..23..16..12..48..43.,
+         method = "spearman")
+
+#p=VALUE:  0.02178 
+#R= 0.80 Nos indica una correlación muy alta 
+#Ambas variables se explican una a la otra 
+#Se rechaza la Hipótesis nula 
+
+##############################################################################
+
+#E J E R C I C I O N.2 
+
+datos_suelo <- read.csv("suelo.csv")
+
+library(Hmisc)
+library(reshape2)
+
+#Para empezar a trabajar con la base de datos 
+#se selecciona primero todos los datos númericos 
+
+variables <- datos_suelo[, c("pH", "N", "Dens", "P", "Ca", "Mg","K",
+                       "Na", "Conduc")]
+
+#Se calculan correlaciones y p-values con Pearson 
+
+resultados <- rcorr(as.matrix(variables),type = "pearson")
+
+#Extraer resultados de correlaciones y p-values 
+
+cor_matrix <- resultados$r
+p_matrix <- resultados$P
+
+#Upper.tri para convertir los datos a una tabla sin 
+#duplicados ni diagonal
+
+get_corr_table <- function(cor_matrix, p_matrix) {
+  ut <- upper.tri(cor_matrix)
+  data.frame(
+    Var1=rownames(cor_matrix)[row(cor_matrix)[ut]],
+    Var2=colnames(cor_matrix)[col(cor_matrix)[ut]],
+    Correlation = cor_matrix[ut],
+    p_value= p_matrix[ut]
+  )
+}
+
+results <- get_corr_table(cor_matrix, p_matrix)
+
+print(results)
+
+#Se debe adaptar la información en un cuadro como el 
+#Cuadro ejemplo 3 
+
+#Crear una columna de "Conjunto"
+results$Conjunto <- paste(results$Var1, "-", results$Var2)
+
+#Se reordenan las columnas 
+Tabla_final <- results[, c("Conjunto","Correlation","p_value")]
+
+#Renombrar 
+colnames(Tabla_final) <- c("Conjunto","r","valor de P")
+print(Tabla_final)
+
+library(corrplot)
+orden <- c("K", "pH","P","N","Ca","Mg","Dens","Na","Conduc")
+cor_matrix2 <- cor_matrix[orden, orden]
+
+corrplot(cor_matrix2, 
+         method = "circle", 
+         type="upper",
+         order="original",
+         tl.col= "black",
+         tl.srt= 45,
+         cl.cex =1,
+         cl.pos="r",
+         )
+
+##############################################################################
+
+# E J E R C I C I O N.3 
+
+#Cargar base de datos 
+data("anscombe")
+
+#Ajustar márgenes mínimos: abajo, 
+#izquierda, arrib, derecha 
+par(mar=c(2,2,2,1))
+#Establecer una cuadrícula de 2x2 
+par(mfrow= c(2,2))
+#Reducir el espacio entre ejes y reducir etiquetas 
+par(mgp=c(1, 0.5, 0))
+
+#Configurar área de gráficos con 2 filas, 2 columnas
+par(mfrow=c(2,2))
+
+#Crear los 4 gráficos solicitados 
+for(i in 1:4) {
+x <- anscombe[,i] #Columnas x1, x2, x3, x4 
+y <- anscombe [, i + 4 ] #Columnas y1,y2,y3,y4
+
+#Gráficos 
+
+plot(x, y, 
+     main= paste("Conjunto", i), 
+     xlab=paste("x", i),
+     ylab=paste("y", i),
+     pch= 19, 
+     col= "cornsilk4", 
+     cex=1.5,
+     xlim=c(3,19),
+     ylim=c(3,13))
+
+#Línea de regresión 
+abline(lm(y ~ x ), col= "darkseagreen4", lwd= 3)
+
+#Estadísticas 
+
+r <- round(cor(x,y),3)
+legend("topleft", 
+       legend = paste("r=",r),
+       bty="n",
+       text.col="burlywood4",
+       cex=1.2)
+}
+#Para restaurarlo a configuración normal 
+par(mfrow = c(1,1))
+
+##################################################################
+
+# E J E R C I C I O N.3 
+
+x1 <- c(10.0, 8.0, 13.0, 9.0, 11.0, 14.0, 6.0, 4.0, 12.0, 7.0, 5.0)
+y1 <- c(8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82, 5.68)
+
+x2 <- c(10.0, 8.0, 13.0, 9.0, 11.0, 14.0, 6.0, 4.0, 12.0, 7.0, 5.0)
+y2 <- c(9.14, 8.14, 8.74, 8.77, 9.26, 8.10, 6.13, 3.10, 9.13, 7.26, 4.74)
+
+x3 <- c(10.0, 8.0, 13.0, 9.0, 11.0, 14.0, 6.0, 4.0, 12.0, 7.0, 5.0)
+y3 <- c(7.46, 6.77, 12.74, 7.11, 7.81, 8.84, 6.08, 5.39, 8.15, 6.42, 5.73)
+
+x4 <- c(8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0,19.0, 8.0, 8.0, 8.0)
+y4 <- c(6.58, 5.76, 7.71, 8.84, 8.47, 7.04, 5.25, 12.50, 5.56, 7.91, 6.8)
+
+calculo_prop<-  function(x, y){
+      modelo <- lm(y ~ x)
+      list(
+        media_x = mean(x),
+        var_x = var(x),
+        media_y = mean(y),
+        var_y = var(y),
+        correlacion = cor(x,y),
+        regresion = coef(modelo),
+        R2 = summary(modelo)$r.squared
+      )
+}
+#Resultados para cada conjunto
+result1 <- calculo_prop(x1, y1)
+result2 <- calculo_prop(x2, y2)
+result3 <- calculo_prop(x3, y3)
+result4 <- calculo_prop(x4, y4)
+
+#Mostrar resultados 
+result1 
+result2 
+result3 
+result4 
+
+#Para mostrar los resultados en un formato tabla 
+calc_prop_df <- function(x, y){
+  modelo <- lm(y ~ x)
+  data.frame(
+    `Media de x` = mean(x),
+    `Varianza de x` = var(x),
+    `Media de y` = mean(y),
+    `Varianza de y` = var(y),
+    `Correlación x-y` = cor(x,y),
+    `Intersección` = coef(modelo)[1],
+    `Pendiente` = coef(modelo)[2],
+    `R2` = summary(modelo)$r.squared
+  )
+}
+
+#Resultados para cada conjunto
+df1 <- calc_prop_df(x1, y1)
+df2 <- calc_prop_df(x2, y2)
+df3 <- calc_prop_df(x3, y3)
+df4 <- calc_prop_df(x4, y4)
+
+#Se une todo en una sola tabla 
+
+cuadro4 <- rbind(df1, df2, df3, df4)
+rownames(cuadro4) <- c("Conjunto I", "Conjunto II", "Conjunto III", "Conjunto IV")
+
+print(cuadro4)
+
+#Para generar el cuadro 5 
+
+cuadro5 <- data.frame(
+  I_x =x1, I_y= y1, 
+  II_x= x2, II_y = y2,
+  III_x = x3, III_y = y3,
+  IV_x = x4, IV_y = y4
+)
+
+print(cuadro5)
+
+############################################################################
+
