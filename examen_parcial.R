@@ -1,0 +1,111 @@
+
+
+#EXAMEN PARCIAL II 
+#DR.Marco Aurelio Gonzalez Tagle 
+#Evelyn Sofia Ruiz Galarza 
+#22/10/25 
+
+
+
+#Importar base de datos
+datos_suelo <- read.csv("obs.csv")
+View (datos_suelo)
+
+#Ajustes en bariables Zone y urb1 para que se identifiquen como 
+#factores y no como variables númericas 
+
+datos_suelo$zone <- as.factor(datos_suelo$zone)
+datos_suelo$wrb1 <- as.factor(datos_suelo$wrb1)
+
+
+#ACTIVIDAD 1 
+
+summary(datos_suelo$Clay1)
+summary(datos_suelo$Clay2)
+summary(datos_suelo$Clay5)
+
+#P1 ¿Cuál es la tendencia del contenido promedio de Arcilla (Clay) 
+#con respecto a la profundidad?
+
+#R:Se puede notar que entre más profundo sea el perfil de suelo, 
+# en este caso de 30-50 cm hay una mayor cantidad promedio de arcilla 
+
+#ACTIVIDAD 2 
+
+boxplot(datos_suelo$Clay1)
+
+#P2 ¿Existe evidencia de outliers?
+#R: Sí 
+
+#P3 ¿Puede identificar cuáles observaciones son mediante una simple restricción
+#de datos? Pista: observe los valores mediante el boxplot 
+#y haga la restricción 
+
+datos_rest <- subset(datos_suelo,datos_suelo$Clay1>=10 & 
+    datos_suelo$Clay1<=60)
+
+#ACTIVIDAD 3 
+
+#P4 ¿Estime si el contenido de Arcilla promedio en los suelos tropicales 
+#de 30 % (media teorética) es significativamente diferente que la media observada 
+#en el campo experimental Tropenbos Cameroon Programme(TCP)? 
+
+t.test(datos_suelo$Clay1,mu=30)
+#p-value: 0.2702
+#Ya que el valor de p es mayor a 0.05 podemos afirmar que no hay una
+# diferencia significativa entre la media observada y la media teoretica 
+
+#ACTIVIDAD 4: EXISTE UNA RELACIÓN ENTRE EL CONTENIDO DE ARCILLA 
+# DE LOS TRES PERFILES?
+
+#P5 ¿Existe una relación positiva, negativa o para nada relacionados, 
+#entre los perfiles superior (Clay1 ) e inferior (Clay5 ) con 
+#el contenido de Arcilla?
+
+shapiro.test(datos_suelo$Clay1)
+#p value: menor a 0.05, datos no normales 
+shapiro.test(datos_suelo$Clay5)
+#p value: mayor a 0.05, datos normales 
+
+#Como tenemos dos variables, una con normalidad en sus datos y otra 
+# con no normalidad en sus datos, se usará el método de Spearman para 
+# realizar la correlación, ya que Pearson se usa unicamente en 
+# datos normales 
+
+cor.test(datos_suelo$Clay1, 
+         datos_suelo$Clay5, 
+         method="spearman")
+
+#rho= 0.88, nos indica una correlación positiva y muy alta entre 
+# ambas variable y su contenido de arcilla  
+
+#P7 ¿La correlación es estadísticamente significativa? 
+#R: Sí, es estadisticamente significativa 
+
+#ACTIVIDAD 5: Con la base de datos se puede predecir que tan variable es 
+#el contenido de arcilla en la capa
+#más profunda entre las cuatro zonas identificadas (zone)
+
+#P6 ¿Existe una forma de identificar la variación entre las cuatro zonas 
+# que se encuentran en el estudio?
+
+#Con medidas de dispersión, en este casi la media, varianza 
+# y desviación estándar
+
+#P7 Realice una inspección visual del contenido de arcilla en el perfil 30-50 cm (Clay5 )
+#y las cuatro zonas(zone) presentes en el área de estudio.
+#¿Existen indicios de que las cuatro zonas son diferentes en cuanto al
+#contenido de arcilla en el perfil de 30 a 50 cm.? 
+
+plot(datos_suelo$Clay5)
+plot(datos_suelo$zone)
+plot(datos_suelo$Clay5,
+     datos_suelo$zone,
+     main = "Diferencia de contenido de arcilla en 4 zonas de estudio",
+     xlab = "Zona de estudio",
+     ylab = "Contenido de arcilla en Clay5",
+     pch = 19,      
+     col = "olivedrab")
+
+
+#Si hay diferencias entre el contenido de arcillas entre las diferentes zonas 
