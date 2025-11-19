@@ -5,7 +5,7 @@
 # DR. MARCO A. G. TAGLE 
 ##########################################################################################################
 
-#Correlación de Pearson 
+# Correlación de Pearson 
 
 #Ambas variables son métricas (medibles)
 
@@ -61,3 +61,4 @@ cor.test(faithful$waiting,faithful$eruptions,
 #Después el valor de r, nos indica que tan débil o fuerte es la 
 
 #correlación 
+
