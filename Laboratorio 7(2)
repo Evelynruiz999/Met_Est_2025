@@ -79,3 +79,4 @@ Resultado <- sapply(horas_estudio, function(horas){
 
 #Se usa la correlación de pearson 
 
+
