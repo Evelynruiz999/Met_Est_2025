@@ -1,9 +1,10 @@
-Laboratorio #6 
-#10 de Septiembre de 2025 
-#Evelyn Sofia Ruiz Galarza 
-#Dependientes 
-#Prueba t Student con una sola muestra 
-
+#########################################################################################################################
+# LABORATORIO 6 
+# 10/09/25 
+# ESRG
+# MUESTRAS DEPENDIENTES 
+# Prueba t Student con una sola muestra 
+########################################################################################################################
 
 #Se ingresan los datos 
 costal<-c(87.7, 80.01, 77.28, 78.76, 81.52, 74.2, 80.71, 79.5, 77.87, 81.94, 80.7,
