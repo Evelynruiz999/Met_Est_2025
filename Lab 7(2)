@@ -1,5 +1,5 @@
 #############################################################################################################
-# LABORATORIO 7 - Segunda parte 
+# LABORATORIO 7 - Segunda parte
 # 25/09/25 
 # ESRG 
 # DR. MARCO A.G TAGLE
@@ -78,3 +78,4 @@ Resultado <- sapply(horas_estudio, function(horas){
 #Si hay una correlación significativa 
 
 #Se usa la correlación de pearson 
+
