@@ -62,3 +62,4 @@ cor.test(faithful$waiting,faithful$eruptions,
 
 #correlación 
 
+
