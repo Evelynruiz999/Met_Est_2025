@@ -1,3 +1,10 @@
+#################################################################################################################
+# LABORATORIo 2 
+# ESRG 
+# DR. MARCO A. GONZALEZ TAGLE
+# 14/08/25
+#################################################################################################################
+
 # Importar nuestra base de datos desde Excel 
 temperatura <- read.csv("~/temperatura.csv")
 >   View(temperatura)

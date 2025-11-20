@@ -1,12 +1,11 @@
-############################################
+###########################################################################################################
+# LABORATORIO 7 
+# ESRG 
+# 24/09/2025
+# DR. MARCO A. G. TAGLE 
+##########################################################################################################
 
-# Laboratorio 7 
-# Evelyn Sofia Ruiz Galarza 
-#24/09/2025
-
-############################################
-
-#Correlación de Pearson 
+# Correlación de Pearson 
 
 #Ambas variables son métricas (medibles)
 
@@ -60,4 +59,7 @@ cor.test(faithful$waiting,faithful$eruptions,
 #para saber que método se utilizará, basandonos en 
 #la distribución de los datos (normal o no nomral)
 #Después el valor de r, nos indica que tan débil o fuerte es la 
+
 #correlación 
+
+

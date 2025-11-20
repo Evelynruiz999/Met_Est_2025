@@ -1,7 +1,11 @@
+###################################################################################################################
+# LABORATORIO 4 
 # Pruebas de t
-# caso de muestras independientes 
+# Caso de muestras independientes 
 # ESRG 
 # 27/08/25
+# DR. MARCO A. GONZALEZ TAGLE 
+#################################################################################################################
 
 #Importar datos de Índice de calidad 
 calidad <- read.csv("CalidadDePlantulas.csv", header = T)
